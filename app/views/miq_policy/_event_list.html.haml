@@ -1,5 +1,6 @@
 #event_list_div
   - if @events
+    %p = @events
     - if @events.empty?
       - if @search_text.empty?
         - msg = _("No Events are defined")

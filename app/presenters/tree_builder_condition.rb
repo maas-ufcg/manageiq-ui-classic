@@ -21,6 +21,7 @@ class TreeBuilderCondition < TreeBuilder
   # level 1 - host / vm
   def x_get_tree_roots(count_only, _options)
     text_i18n = {:Host                => _("Host Conditions"),
+                 :PhysicalServer      => _("Physical Server Conditions"),
                  :Vm                  => _("VM and Instance Conditions"),
                  :ContainerReplicator => _("Replicator Conditions"),
                  :ContainerGroup      => _("Pod Conditions"),
