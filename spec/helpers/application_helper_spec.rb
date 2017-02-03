@@ -606,7 +606,7 @@ describe ApplicationHelper do
 
     it "when layout likes 'miq_ae_*'" do
       @layout = "miq_ae_some_thing"
-      expect(subject).to eq(title + ": Automate")
+      expect(subject).to eq(title + ": Automation")
     end
 
     it "when layout likes 'miq_policy*'" do
@@ -1439,7 +1439,7 @@ describe ApplicationHelper do
     it "returns correct image for job record based upon it's status" do
       job_attrs = {"state" => "running", "status" => "ok"}
       image = helper.listicon_image_tag("Job", job_attrs)
-      expect(image).to eq("<img valign=\"middle\" width=\"16\" height=\"16\" title=\"Status = Running\"" \
+      expect(image).to eq("<img title=\"Status = Running\"" \
                           " src=\"#{ActionController::Base.helpers.image_path('100/job-running.png')}\" />")
     end
   end

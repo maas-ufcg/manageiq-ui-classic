@@ -132,6 +132,7 @@ Rails.application.routes.draw do
     :auth_key_pair_cloud      => {
       :get  => %w(
         download_data
+        download_summary_pdf
         index
         new
         show
@@ -157,6 +158,7 @@ Rails.application.routes.draw do
     :availability_zone        => {
       :get  => %w(
         download_data
+        download_summary_pdf
         index
         perf_top_chart
         show
@@ -182,6 +184,7 @@ Rails.application.routes.draw do
       :get  => %w(
         add_host_select
         download_data
+        download_summary_pdf
         edit
         host_aggregate_form_fields
         index
@@ -308,6 +311,7 @@ Rails.application.routes.draw do
     :configuration_job      => {
       :get  => %w(
         download_data
+        download_summary_pdf
         index
         outputs
         parameters
@@ -346,6 +350,7 @@ Rails.application.routes.draw do
     :cloud_object_store_container => {
       :get => %w(
         download_data
+        download_summary_pdf
         index
         show
         show_list
@@ -369,6 +374,7 @@ Rails.application.routes.draw do
       :get => %w(
         cloud_tenant_form_fields
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -398,6 +404,7 @@ Rails.application.routes.draw do
     :cloud_object_store_object => {
       :get => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -425,6 +432,7 @@ Rails.application.routes.draw do
       :get  => %w(
         delete_volumes
         download_data
+        download_summary_pdf
         attach
         detach
         backup_new
@@ -539,6 +547,7 @@ Rails.application.routes.draw do
     :container                => {
       :get  => %w(
         download_data
+        download_summary_pdf
         explorer
         perf_top_chart
         show
@@ -551,7 +560,6 @@ Rails.application.routes.draw do
       :post => %w(
         accordion_select
         button
-        container_edit
         container_form_field_changed
         explorer
         tl_chooser
@@ -573,6 +581,7 @@ Rails.application.routes.draw do
     :container_group          => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -610,6 +619,7 @@ Rails.application.routes.draw do
     :container_node           => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -648,6 +658,7 @@ Rails.application.routes.draw do
     :container_replicator     => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -685,6 +696,7 @@ Rails.application.routes.draw do
     :container_image          => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -720,6 +732,7 @@ Rails.application.routes.draw do
     :container_image_registry => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -747,6 +760,7 @@ Rails.application.routes.draw do
     :container_service        => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -780,6 +794,7 @@ Rails.application.routes.draw do
     :container_project        => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -814,6 +829,7 @@ Rails.application.routes.draw do
     :container_route          => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -868,6 +884,7 @@ Rails.application.routes.draw do
     :container_build          => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -895,6 +912,7 @@ Rails.application.routes.draw do
     :container_template          => {
       :get  => %w(
         download_data
+        download_summary_pdf
         index
         show
         show_list
@@ -1007,6 +1025,7 @@ Rails.application.routes.draw do
         dialog_load
         discover
         download_data
+        download_summary_pdf
         ems_cloud_form_fields
         protect
         show_list
@@ -1050,6 +1069,7 @@ Rails.application.routes.draw do
         columns_json
         dialog_load
         download_data
+        download_summary_pdf
         index
         perf_top_chart
         protect
@@ -1088,6 +1108,7 @@ Rails.application.routes.draw do
         dialog_load
         discover
         download_data
+        download_summary_pdf
         ems_infra_form_fields
         register_nodes
         introspect_nodes
@@ -1138,29 +1159,20 @@ Rails.application.routes.draw do
 
     :ems_physical_infra                => {
       :get  => %w(
-        dialog_load
         discover
         download_data
         ems_physical_infra_form_fields
-        register_nodes
-        introspect_nodes
         protect
         show_list
         tagging_edit
-        scaling
-        scaledown
       ) +
                compare_get,
       :post => %w(
         button
         create
-        form_field_changed
-        register_nodes
-        introspect_nodes
         listnav_search_selected
         protect
         quick_search
-        sections_field_changed
         show
         show_list
         tag_edit_form_field_changed
@@ -1169,8 +1181,6 @@ Rails.application.routes.draw do
         tree_autoload
         update
         wait_for_task
-        scaling
-        scaledown
         x_show
         squash_toggle
       ) +
@@ -1210,6 +1220,7 @@ Rails.application.routes.draw do
     :ems_container            => {
       :get  => %w(
         download_data
+        download_summary_pdf
         perf_top_chart
         protect
         show_list
@@ -1246,6 +1257,7 @@ Rails.application.routes.draw do
     :ems_middleware            => {
       :get  => %w(
         download_data
+        download_summary_pdf
         ems_middleware_form_fields
         show_list
         tagging_edit
@@ -1277,6 +1289,7 @@ Rails.application.routes.draw do
     :middleware_server            => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -1285,6 +1298,7 @@ Rails.application.routes.draw do
         show_list
         tagging_edit
         tag_edit_form_field_changed
+        jdbc_drivers
       ) +
                compare_get,
       :post => %w(
@@ -1317,6 +1331,7 @@ Rails.application.routes.draw do
     :middleware_deployment            => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -1351,6 +1366,7 @@ Rails.application.routes.draw do
     :middleware_datasource => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -1387,6 +1403,7 @@ Rails.application.routes.draw do
     :middleware_domain => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         show
@@ -1420,6 +1437,7 @@ Rails.application.routes.draw do
     :middleware_server_group => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         show
@@ -1429,6 +1447,7 @@ Rails.application.routes.draw do
       ) +
         compare_get,
       :post => %w(
+        add_deployment
         button
         create
         dynamic_checkbox_refresh
@@ -1453,6 +1472,7 @@ Rails.application.routes.draw do
     :middleware_messaging => {
       :get  => %w(
         download_data
+        download_summary_pdf
         index
         perf_chart_chooser
         show
@@ -1482,6 +1502,7 @@ Rails.application.routes.draw do
     :ems_datawarehouse => {
       :get  => %w(
         download_data
+        download_summary_pdf
         ems_datawarehouse_form_fields
         show_list
         tagging_edit
@@ -1514,6 +1535,7 @@ Rails.application.routes.draw do
       :get  => %w(
         dialog_load
         download_data
+        download_summary_pdf
         ems_network_form_fields
         index
         protect
@@ -1605,6 +1627,7 @@ Rails.application.routes.draw do
         tag_edit_form_field_changed
         tagging_edit
         update
+        wait_for_task
       ) +
         adv_search_post +
         compare_post +
@@ -1616,6 +1639,7 @@ Rails.application.routes.draw do
       :get  => %w(
         delete_subnets
         download_data
+        download_summary_pdf
         cloud_subnet_form_fields
         cloud_subnet_networks_by_ems
         cloud_tenants_by_ems
@@ -1652,6 +1676,7 @@ Rails.application.routes.draw do
         cloud_network_form_fields
         delete_networks
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -1711,6 +1736,7 @@ Rails.application.routes.draw do
 
     :network_router           => {
       :get  => %w(
+        add_interface_select
         delete_network_routers
         download_data
         edit
@@ -1718,17 +1744,22 @@ Rails.application.routes.draw do
         network_router_form_fields
         network_router_networks_by_ems
         new
+        remove_interface_select
         show
         show_list
         tagging_edit
       ) +
         compare_get,
       :post => %w(
+        add_interface
+        add_interface_select
         button
         create
         form_field_changed
         listnav_search_selected
         quick_search
+        remove_interface
+        remove_interface_select
         sections_field_changed
         show
         show_list
@@ -1774,6 +1805,7 @@ Rails.application.routes.draw do
       # Then remove this route from all other controllers too.
       :get  => %w(
         download_data
+        download_summary_pdf
         index
         show
         show_list
@@ -1801,6 +1833,7 @@ Rails.application.routes.draw do
         advanced_settings
         dialog_load
         download_data
+        download_summary_pdf
         edit
         filesystem_download
         filesystems
@@ -1873,6 +1906,7 @@ Rails.application.routes.draw do
     :infra_networking         => {
       :get  => %w(
         download_data
+        download_summary_pdf
         explorer
         hosts
         show
@@ -1915,6 +1949,8 @@ Rails.application.routes.draw do
       ),
       :post => %w(
         create
+        delete
+        save
       )
     },
 
@@ -2172,6 +2208,7 @@ Rails.application.routes.draw do
 
     :miq_template             => {
       :get  => %w(
+        download_summary_pdf
         edit
         show
         ownership
@@ -2189,6 +2226,7 @@ Rails.application.routes.draw do
       :get  => %w(
         dialog_load
         download_data
+        download_summary_pdf
         edit
         ems_storage_form_fields
         index
@@ -2233,6 +2271,7 @@ Rails.application.routes.draw do
       :get  => %w(
         dialog_load
         download_data
+        download_summary_pdf
         edit
         ems_storage_form_fields
         index
@@ -2276,6 +2315,7 @@ Rails.application.routes.draw do
       :get  => %w(
         dialog_load
         download_data
+        download_summary_pdf
         edit
         ems_storage_form_fields
         index
@@ -2320,6 +2360,7 @@ Rails.application.routes.draw do
         cim_base_storage_extents
         create_ds
         download_data
+        download_summary_pdf
         index
         protect
         show
@@ -2349,6 +2390,7 @@ Rails.application.routes.draw do
       :get  => %w(
         cim_base_storage_extents
         download_data
+        download_summary_pdf
         index
         protect
         show
@@ -2379,6 +2421,7 @@ Rails.application.routes.draw do
         cim_base_storage_extents
         create_ld
         download_data
+        download_summary_pdf
         index
         protect
         show
@@ -2408,6 +2451,7 @@ Rails.application.routes.draw do
       :get  => %w(
         cim_base_storage_extents
         download_data
+        download_summary_pdf
         index
         protect
         show
@@ -2562,6 +2606,7 @@ Rails.application.routes.draw do
       :get  => %w(
         cloud_networks
         download_data
+        download_summary_pdf
         retirement_info
         index
         outputs
@@ -2599,6 +2644,7 @@ Rails.application.routes.draw do
     :provider_foreman         => {
       :get  => %w(
         download_data
+        download_summary_pdf
         explorer
         provider_foreman_form_fields
         show
@@ -2738,6 +2784,7 @@ Rails.application.routes.draw do
     :resource_pool            => {
       :get  => %w(
         download_data
+        download_summary_pdf
         index
         protect
         show
@@ -2812,6 +2859,7 @@ Rails.application.routes.draw do
         dialog_load
         disk_files
         download_data
+        download_summary_pdf
         explorer
         files
         perf_chart_chooser
@@ -2868,6 +2916,7 @@ Rails.application.routes.draw do
     :storage_manager          => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         index
         new
@@ -2894,6 +2943,7 @@ Rails.application.routes.draw do
     :vm                       => {
       :get  => %w(
         download_data
+        download_summary_pdf
         edit
         retirement_info
         ownership
@@ -2936,8 +2986,9 @@ Rails.application.routes.draw do
         set_checked_items
         show_list
         tree_autoload
-        vmtree_selected
+        genealogy_tree_selected
         ownership_update
+        wait_for_task
       ) +
                ownership_post +
                pre_prov_post
@@ -2946,6 +2997,7 @@ Rails.application.routes.draw do
     :vm_cloud                 => {
       :get  => %w(
         download_data
+        download_summary_pdf
         drift_to_csv
         drift_to_pdf
         drift_to_txt
@@ -3034,6 +3086,7 @@ Rails.application.routes.draw do
         ownership_update
         associate_floating_ip_vm
         disassociate_floating_ip_vm
+        wait_for_task
       ) +
                adv_search_post +
                compare_post +
@@ -3050,6 +3103,7 @@ Rails.application.routes.draw do
     :vm_infra                 => {
       :get  => %w(
         download_data
+        download_summary_pdf
         drift_to_csv
         drift_to_pdf
         drift_to_txt
@@ -3142,6 +3196,7 @@ Rails.application.routes.draw do
     :vm_or_template           => {
       :get  => %w(
         download_data
+        download_summary_pdf
         drift_to_csv
         drift_to_pdf
         drift_to_txt

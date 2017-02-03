@@ -1,18 +1,18 @@
 class ApplicationHelper::Toolbar::PhysicalServerCenter < ApplicationHelper::Toolbar::Basic
-  button_group('ems_physical_infra_vmdb', [
+  button_group('physical_server_vmdb', [
     button(
       :refresh_server_summary,
       'fa fa-repeat fa-lg',
       N_('Reload Current Display'),
       nil),
     select(
-      :ems_physical_infra_vmdb_choice,
+      :physical_server_vmdb_choice,
       'fa fa-cog fa-lg',
       t = N_('Configuration'),
       t,
       :items => [
         button(
-          :ems_physical_infra_refresh,
+          :physical_server_refresh,
           'fa fa-refresh fa-lg',
           N_('Refresh relationships and power states for all items related to this Infrastructure Provider'),
           N_('Refresh Relationships and Power States'),
@@ -26,26 +26,26 @@ class ApplicationHelper::Toolbar::PhysicalServerCenter < ApplicationHelper::Tool
           :klass => ApplicationHelper::Button::HostRegisterNodes),
         separator,
         button(
-          :ems_physical_infra_edit,
+          :physical_server_edit,
           'pficon pficon-edit fa-lg',
           t = N_('Edit this Infrastructure Provider'),
           t),
         button(
-          :ems_physical_infra_scale,
+          :physical_server_scale,
           'pficon pficon-edit fa-lg',
           t = N_('Scale this Infrastructure Provider'),
           t,
           :url   => "/scaling",
           :klass => ApplicationHelper::Button::EmsInfraScale),
         button(
-          :ems_physical_infra_scaledown,
+          :physical_server_scaledown,
           'pficon pficon-edit fa-lg',
           t = N_('Scale this Infrastructure Provider down'),
           t,
           :url   => "/scaledown",
           :klass => ApplicationHelper::Button::EmsInfraScale),
         button(
-          :ems_physical_infra_delete,
+          :physical_server_delete,
           'pficon pficon-delete fa-lg',
           t = N_('Remove this Infrastructure Provider'),
           t,
@@ -54,25 +54,25 @@ class ApplicationHelper::Toolbar::PhysicalServerCenter < ApplicationHelper::Tool
       ]
     ),
   ])
-  button_group('ems_physical_infra_policy', [
+  button_group('physical_server_policy', [
     select(
-      :ems_physical_infra_policy_choice,
+      :physical_server_policy_choice,
       'fa fa-shield fa-lg',
       t = N_('Policy'),
       t,
       :items => [
         button(
-          :ems_physical_infra_protect,
+          :physical_server_protect,
           'pficon pficon-edit fa-lg',
           N_('Manage Policies for this Infrastructure Provider'),
           N_('Manage Policies')),
         button(
-          :ems_physical_infra_tag,
+          :physical_server_tag,
           'pficon pficon-edit fa-lg',
           N_('Edit Tags for this Infrastructure Provider'),
           N_('Edit Tags')),
         button(
-          :ems_physical_infra_check_compliance,
+          :physical_server_check_compliance,
           'fa fa-search fa-lg',
           N_('Check Compliance of the last known configuration for this Infra Manager'),
           N_('Check Compliance of Last Known Configuration'),
@@ -80,15 +80,15 @@ class ApplicationHelper::Toolbar::PhysicalServerCenter < ApplicationHelper::Tool
       ]
     ),
   ])
-  button_group('ems_physical_infra_authentication', [
+  button_group('physical_server_authentication', [
     select(
-      :ems_physical_infra_authentication_choice,
+      :physical_server_authentication_choice,
       'fa fa-lock fa-lg',
       t = N_('Authentication'),
       t,
       :items => [
         button(
-          :ems_physical_infra_recheck_auth_status,
+          :physical_server_recheck_auth_status,
           'fa fa-search fa-lg',
           N_('Re-check Authentication Status for this Infrastructure Provider'),
           N_('Re-check Authentication Status'),

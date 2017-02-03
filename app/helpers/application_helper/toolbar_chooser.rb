@@ -471,15 +471,67 @@ class ApplicationHelper::ToolbarChooser
     else
       # show_list and show screens
       unless @in_a_form
-        if %w(auth_key_pair_cloud availability_zone host_aggregate cloud_object_store_object cloud_object_store_container cloud_tenant
-              cloud_volume cloud_volume_backup cloud_volume_snapshot configuration_job container_group container_node container_service
-              ems_cloud ems_cluster ems_container ems_datawarehouse ems_middleware container_project container_route container_replicator container_image
-              ems_network security_group floating_ip cloud_subnet network_router network_topology network_port cloud_network load_balancer
-              container_image_registry ems_infra ems_physical_infra physical_server flavor host container_build infra_networking infra_topology ems_storage
-              ontap_file_share ontap_logical_disk container_topology middleware_topology cloud_topology middleware_server
-              middleware_deployment middleware_datasource middleware_domain middleware_server_group middleware_messaging
-              ontap_storage_system orchestration_stack resource_pool storage_manager container_template
-              ems_block_storage ems_object_storage timeline usage).include?(@layout)
+        if %w(auth_key_pair_cloud
+              availability_zone
+              cloud_object_store_object
+              cloud_object_store_container
+              cloud_tenant
+              cloud_volume
+              cloud_volume_backup
+              cloud_volume_snapshot
+              cloud_subnet
+              cloud_network
+              cloud_topology
+              configuration_job
+              container_group
+              container_node
+              container_service
+              container_project
+              container_route
+              container_replicator
+              container_image
+              container_image_registry
+              container_build
+              container_topology
+              container_template
+              ems_cloud
+              ems_cluster
+              ems_container
+              ems_datawarehouse
+              ems_middleware
+              ems_network
+              ems_infra
+              ems_physical_infra
+              physical_server
+              ems_storage
+              ems_block_storage
+              ems_object_storage
+              security_group
+              flavor
+              floating_ip
+              host
+              host_aggregate
+              infra_networking
+              infra_topology
+              load_balancer
+              middleware_server
+              middleware_deployment
+              middleware_datasource
+              middleware_domain
+              middleware_server_group
+              middleware_messaging
+              middleware_topology
+              network_router
+              network_topology
+              network_port
+              ontap_file_share
+              ontap_logical_disk
+              ontap_storage_system
+              orchestration_stack
+              resource_pool
+              storage_manager
+              timeline
+              usage).include?(@layout)
           if ["show_list"].include?(@lastaction)
             return "#{@layout.pluralize}_center_tb"
           else

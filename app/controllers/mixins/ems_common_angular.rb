@@ -266,6 +266,20 @@ module Mixins
                         :ssh_keypair_auth_status       => ssh_keypair_auth_status.nil? ? true : ssh_keypair_auth_status
       } if controller_name == "ems_infra"
 
+      render :json => {
+        :name                => @ems.name,
+        :emstype             => @ems.emstype,
+        :zone                => zone,
+        :provider_id         => @ems.provider_id ? @ems.provider_id : "",
+        :hostname            => @ems.hostname,
+        :default_hostname    => @ems.connection_configurations.default.endpoint.hostname,
+        :default_api_port    => @ems.connection_configurations.default.endpoint.port,
+        :provider_region     => @ems.provider_region,
+        :default_userid      => @ems.authentication_userid ? @ems.authentication_userid : "",
+        :ems_controller      => controller_name,
+        :default_auth_status => default_auth_status,
+      } if controller_name == "ems_physical_infra"
+
       render :json => {:name                      => @ems.name,
                        :emstype                   => @ems.emstype,
                        :zone                      => zone,
@@ -434,6 +448,10 @@ module Mixins
         default_endpoint = {:role => :default, :hostname => hostname, :port => port, :security_protocol => ems.security_protocol}
       end
 
+      if ems.kind_of?(ManageIQ::Providers::Lenovo::PhysicalInfraManager)
+        default_endpoint = {:role => :default, :hostname => hostname, :port => port}
+      end
+
       endpoints = {:default     => default_endpoint,
                    :ceilometer  => ceilometer_endpoint,
                    :amqp        => amqp_endpoint,
@@ -446,7 +464,7 @@ module Mixins
 
     def get_hostname_from_routes(ems, hostname, port, token)
       client = ems.class.raw_connect(hostname, port, :bearer => token)
-      client.get_routes(:name=>'hawkular-metrics').first.try(:spec).try(:host)
+      client.get_route('hawkular-metrics', 'openshift-infra').try(:spec).try(:host)
     end
 
     def build_connection(ems, endpoints, mode)

@@ -1,13 +1,13 @@
 class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Toolbar::Basic
-  button_group('host_vmdb', [
+  button_group('physical_server_vmdb', [
     select(
-      :host_vmdb_choice,
+      :physical_server_vmdb_choice,
       'fa fa-cog fa-lg',
       t = N_('Configuration'),
       t,
       :items => [
         button(
-          :host_refresh,
+          :physical_server_refresh,
           'fa fa-refresh fa-lg',
           N_('Refresh relationships and power states for all items related to the selected items'),
           N_('Refresh Relationships and Power States'),
@@ -16,7 +16,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :enabled   => false,
           :onwhen    => "1+"),
         button(
-          :host_scan,
+          :physical_server_scan,
           'fa fa-search fa-lg',
           N_('Perform SmartState Analysis on the selected items'),
           N_('Perform SmartState Analysis'),
@@ -25,7 +25,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :enabled   => false,
           :onwhen    => "1+"),
         button(
-          :host_compare,
+          :physical_server_compare,
           'product product-compare fa-lg',
           N_('Select two or more items to compare'),
           N_('Compare Selected items'),
@@ -33,14 +33,14 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :enabled   => false,
           :onwhen    => "2+"),
         button(
-          :host_register_nodes,
+          :physical_server_register_nodes,
           'pficon pficon-add-circle-o fa-lg',
           t = N_('Register Nodes'),
           t,
           :url   => "/register_nodes",
           :klass => ApplicationHelper::Button::HostRegisterNodes),
         button(
-          :host_manageable,
+          :physical_server_manageable,
           'pficon pficon-edit fa-lg',
           N_('Set selected items to manageable state.'),
           N_('Set Nodes to Manageable'),
@@ -49,7 +49,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :onwhen    => "1+",
           :klass     => ApplicationHelper::Button::HostManageable),
         button(
-          :host_introspect,
+          :physical_server_introspect,
           'pficon pficon-edit fa-lg',
           N_('Introspect selected items'),
           N_('Introspect Nodes'),
@@ -58,7 +58,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :onwhen    => "1+",
           :klass     => ApplicationHelper::Button::HostIntrospectProvide),
         button(
-          :host_provide,
+          :physical_server_provide,
           'pficon pficon-edit fa-lg',
           N_('Provide selected items'),
           N_('Provide Nodes'),
@@ -67,7 +67,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :onwhen    => "1+",
           :klass     => ApplicationHelper::Button::HostIntrospectProvide),
         button(
-          :host_discover,
+          :physical_server_discover,
           'fa fa-search fa-lg',
           t = N_('Discover items'),
           t,
@@ -75,13 +75,13 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :url_parms => "?discover_type=hosts"),
         separator,
         button(
-          :host_new,
+          :physical_server_new,
           'pficon pficon-add-circle-o fa-lg',
           t = N_('Add a New item'),
           t,
           :url => "/new"),
         button(
-          :host_edit,
+          :physical_server_edit,
           'pficon pficon-edit fa-lg',
           t = N_('Edit Selected items'),
           t,
@@ -89,7 +89,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :enabled   => false,
           :onwhen    => "1+"),
         button(
-          :host_delete,
+          :physical_server_delete,
           'pficon pficon-delete fa-lg',
           N_('Remove Selected items'),
           N_('Remove items'),
@@ -100,9 +100,9 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
       ]
     ),
   ])
-  button_group('host_policy', [
+  button_group('physical_server_policy', [
     select(
-      :host_policy_choice,
+      :physical_server_policy_choice,
       'fa fa-shield fa-lg',
       t = N_('Policy'),
       t,
@@ -110,7 +110,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
       :onwhen  => "1+",
       :items   => [
         button(
-          :host_protect,
+          :physical_server_protect,
           'pficon pficon-edit fa-lg',
           N_('Manage Policies for the selected items'),
           N_('Manage Policies'),
@@ -118,7 +118,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :enabled   => false,
           :onwhen    => "1+"),
         button(
-          :host_tag,
+          :physical_server_tag,
           'pficon pficon-edit fa-lg',
           N_('Edit Tags for the selected items'),
           N_('Edit Tags'),
@@ -126,7 +126,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :enabled   => false,
           :onwhen    => "1+"),
         button(
-          :host_check_compliance,
+          :physical_server_check_compliance,
           'fa fa-search fa-lg',
           N_('Check Compliance of the last known configuration for the selected items'),
           N_('Check Compliance of Last Known Configuration'),
@@ -135,7 +135,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :enabled   => false,
           :onwhen    => "1+"),
         button(
-          :host_analyze_check_compliance,
+          :physical_server_analyze_check_compliance,
           'fa fa-search fa-lg',
           N_('Analyze then Check Compliance for the selected items'),
           N_('Analyze then Check Compliance'),
@@ -146,15 +146,15 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
       ]
     ),
   ])
-  button_group('host_lifecycle', [
+  button_group('physical_server_lifecycle', [
     select(
-      :host_lifecycle_choice,
+      :physical_server_lifecycle_choice,
       'fa fa-recycle fa-lg',
       t = N_('Lifecycle'),
       t,
       :items => [
         button(
-          :host_miq_request_new,
+          :physical_server_miq_request_new,
           'pficon pficon-add-circle-o fa-lg',
           N_('Request to Provision items'),
           N_('Provision items'),
@@ -164,9 +164,9 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
       ]
     ),
   ])
-  button_group('host_operations', [
+  button_group('physical_server_operations', [
     select(
-      :host_power_choice,
+      :physical_server_power_choice,
       'fa fa-power-off fa-lg',
       N_('Power Operations'),
       N_('Power'),
@@ -174,7 +174,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
       :onwhen  => "1+",
       :items   => [
         button(
-          :host_standby,
+          :physical_server_standby,
           nil,
           N_('Shutdown the selected items to Standby Mode'),
           N_('Enter Standby Mode'),
@@ -186,7 +186,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :klass     => ApplicationHelper::Button::HostFeatureButton,
           :options   => {:feature => :standby}),
         button(
-          :host_shutdown,
+          :physical_server_shutdown,
           nil,
           N_('Shutdown the selected items'),
           N_('Shutdown'),
@@ -198,7 +198,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :klass     => ApplicationHelper::Button::HostFeatureButtonWithDisable,
           :options   => {:feature => :shutdown}),
         button(
-          :host_reboot,
+          :physical_server_reboot,
           nil,
           N_('Restart the selected items'),
           N_('Restart'),
@@ -211,7 +211,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :options   => {:feature => :reboot}),
         separator,
         button(
-          :host_start,
+          :physical_server_start,
           nil,
           N_('Power On the selected items'),
           N_('Power On'),
@@ -221,7 +221,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :klass     => ApplicationHelper::Button::HostFeatureButton,
           :options   => {:feature => :start}),
         button(
-          :host_stop,
+          :physical_server_stop,
           nil,
           N_('Power Off the selected items'),
           N_('Power Off'),
@@ -231,7 +231,7 @@ class ApplicationHelper::Toolbar::PhysicalServersCenter < ApplicationHelper::Too
           :klass     => ApplicationHelper::Button::HostFeatureButton,
           :options   => {:feature => :stop}),
         button(
-          :host_reset,
+          :physical_server_reset,
           nil,
           N_('Reset the selected items'),
           N_('Reset'),

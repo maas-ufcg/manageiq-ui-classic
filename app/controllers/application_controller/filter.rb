@@ -95,7 +95,7 @@ module ApplicationController::Filter
       exp = exp_find_by_token(@edit[@expkey][:expression], token)
       @edit[:edit_exp] = copy_hash(exp)
       begin
-        @edit[@expkey].update_from_exp_tree(exp)
+        @edit[@expkey].update_from_exp_tree(@edit[:edit_exp])
       rescue => bang
         @exp_atom_errors = [_("There is an error in the selected expression element, perhaps it was imported or edited manually."),
                             _("This element should be removed and recreated or you can report the error to your %{product} administrator.") % {:product => I18n.t('product.name')},
@@ -307,7 +307,7 @@ module ApplicationController::Filter
             {:model => ui_lookup(:model => @edit[@expkey][:exp_model]),
              :name => @edit[:new_search_name]})
           @edit[@expkey].select_filter(s)
-          @edit[:new_search_name] = @edit[:adv_search_name] = @edit[@expkey][:exp_last_loaded][:description]
+          @edit[:new_search_name] = @edit[:adv_search_name] = @edit[@expkey][:exp_last_loaded][:description] unless @edit[@expkey][:exp_last_loaded].nil?
           @edit[@expkey][:expression] = copy_hash(@edit[:new][@expkey])
           # Build the expression table
           @edit[@expkey][:exp_table] = exp_build_table(@edit[@expkey][:expression])
